@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_brightcove_static_video"
+        style="@style/TextView"
+        android:text="BrightCove static video as per docs" />
+
+    <TextView
+        android:id="@+id/tv_brightcove_video_from_id"
+        style="@style/TextView"
+        android:text="BrightCove video from videoId using Catalog" />
+
+    <TextView
+        android:id="@+id/tv_brightcove_analytics"
+        style="@style/TextView"
+        android:text="BrightCove Analytics" />
+
+    <TextView
+        android:id="@+id/tv_kult_feed"
+        style="@style/TextView"
+        android:text="Kult video list: load video from videoId using Catalog" />
+
+    <TextView
+        android:id="@+id/tv_kult_need"
+        style="@style/TextView"
+        android:text="Kult Video Need like NYX" />
+
+</LinearLayout>
