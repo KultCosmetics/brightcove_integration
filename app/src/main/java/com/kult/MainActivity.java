@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.tv_brightcove_static_video).setOnClickListener(this);
         findViewById(R.id.tv_brightcove_video_from_id).setOnClickListener(this);
         findViewById(R.id.tv_kult_feed).setOnClickListener(this);
+        findViewById(R.id.tv_kult_need).setOnClickListener(this);
     }
 
     @Override
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.tv_kult_feed:
                 startActivity(new Intent(this, KultVideoListActivity.class));
+                break;
+            case R.id.tv_kult_need:
+                startActivity(new Intent(this, KultProductActivity_NYX.class));
                 break;
         }
 

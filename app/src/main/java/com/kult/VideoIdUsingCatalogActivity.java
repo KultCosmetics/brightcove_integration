@@ -18,7 +18,8 @@ import java.net.URISyntaxException;
 
 public class VideoIdUsingCatalogActivity extends BrightcovePlayer {
 
-    private String videoId = null;
+    private String videoId = "6001577828001"; //default: hard coded value
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

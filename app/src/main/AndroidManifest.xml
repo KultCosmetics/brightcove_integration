@@ -23,6 +23,7 @@
             android:configChanges="orientation|screenSize" />
 
         <activity android:name=".KultVideoListActivity" />
+        <activity android:name=".KultProductActivity_NYX" />
     </application>
 
 </manifest>
