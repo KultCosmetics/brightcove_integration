@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        findViewById(R.id.tv_exoplayer).setOnClickListener(this);
+        findViewById(R.id.tv_exoplayer_feed).setOnClickListener(this);
         findViewById(R.id.tv_brightcove_static_video).setOnClickListener(this);
         findViewById(R.id.tv_brightcove_video_from_id).setOnClickListener(this);
         findViewById(R.id.tv_kult_feed).setOnClickListener(this);
@@ -24,6 +26,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.tv_exoplayer:
+                startActivity(new Intent(this, ExoPlayerActivity.class));
+                break;
+            case R.id.tv_exoplayer_feed:
+                startActivity(new Intent(this, KultVideoListExoPlayerActivity.class));
+                break;
             case R.id.tv_brightcove_static_video:
                 startActivity(new Intent(this, StaticVideoActivity.class));
                 break;

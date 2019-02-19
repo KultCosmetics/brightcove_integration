@@ -8,6 +8,16 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tv_exoplayer"
+        style="@style/TextView"
+        android:text="ExoPlayer" />
+
+    <TextView
+        android:id="@+id/tv_exoplayer_feed"
+        style="@style/TextView"
+        android:text="Exoplayer video list" />
+
+    <TextView
         android:id="@+id/tv_brightcove_static_video"
         style="@style/TextView"
         android:text="BrightCove static video as per docs" />
