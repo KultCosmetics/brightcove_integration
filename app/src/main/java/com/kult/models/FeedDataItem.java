@@ -1,4 +1,4 @@
-package com.kult;
+package com.kult.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

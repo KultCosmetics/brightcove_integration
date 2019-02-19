@@ -1,4 +1,4 @@
-package com.kult;
+package com.kult.brightcove;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.kult.R;
+import com.kult.models.FeedDataItem;
 
 import org.json.JSONArray;
 
@@ -16,12 +18,12 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KultVideoListExoPlayerActivity extends AppCompatActivity {
+public class BrightCove_VideoListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kult_video_list);
+        setContentView(R.layout.activity_brightcove_video_list);
 
         getFeedData();
     }
@@ -32,7 +34,7 @@ public class KultVideoListExoPlayerActivity extends AppCompatActivity {
     }
 
     private void displayVideoList(List<FeedDataItem> feedDataItemList) {
-        Adapter_Feeds_Exoplayer adapter = new Adapter_Feeds_Exoplayer(this, feedDataItemList);
+        Adapter_Feeds adapter = new Adapter_Feeds(this, feedDataItemList);
 
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         RecyclerView recyclerView = findViewById(R.id.recycler_view_video_list);
@@ -48,7 +50,7 @@ public class KultVideoListExoPlayerActivity extends AppCompatActivity {
             List<FeedDataItem> list = new ArrayList<>();
             for (int i = 0; i < array.length(); i++) {
                 FeedDataItem feedDataItem = gson.fromJson(array.getString(i), FeedDataItem.class);
-                Log.d("poo","feedDataItem:  " +feedDataItem.getVideoId());
+                Log.d("poo", "feedDataItem:  " + feedDataItem.getVideoId());
                 list.add(feedDataItem);
             }
             return list;
@@ -61,7 +63,7 @@ public class KultVideoListExoPlayerActivity extends AppCompatActivity {
     public String loadJSONFromAsset() {
         String json = null;
         try {
-            InputStream is = getAssets().open("data_exoplayer.json");
+            InputStream is = getAssets().open("data.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);

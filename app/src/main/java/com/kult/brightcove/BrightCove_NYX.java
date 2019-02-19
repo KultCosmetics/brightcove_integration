@@ -1,4 +1,4 @@
-package com.kult;
+package com.kult.brightcove;
 
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +11,8 @@ import com.brightcove.player.event.EventType;
 import com.brightcove.player.model.Video;
 import com.brightcove.player.view.BrightcoveExoPlayerVideoView;
 import com.brightcove.player.view.BrightcovePlayer;
+import com.kult.R;
+import com.kult.models.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +20,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class KultProductActivity_NYX extends BrightcovePlayer implements Adapter_Products.SeekBarListener {
+public class BrightCove_NYX extends BrightcovePlayer implements Adapter_Products.SeekBarListener {
     @BindView(R.id.recycler_view_product_list)
     RecyclerView recyclerViewProducts;
     @BindView(R.id.brightcove_video_view)
@@ -32,7 +34,7 @@ public class KultProductActivity_NYX extends BrightcovePlayer implements Adapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_video_product_nyx);
+        setContentView(R.layout.activity_nyx);
         ButterKnife.bind(this);
 
         loadProducts();
@@ -58,7 +60,7 @@ public class KultProductActivity_NYX extends BrightcovePlayer implements Adapter
             // Start playback of the video with start().
             @Override
             public void onVideo(Video video) {
-                Log.v(TAG, "VideoIdUsingCatalogActivity:: onVideo: video = " + video);
+                Log.v(TAG, "BrightCove_VideoActivity:: onVideo: video = " + video);
                 brightcoveVideoView.add(video);
                 brightcoveVideoView.start();
             }
@@ -82,7 +84,7 @@ public class KultProductActivity_NYX extends BrightcovePlayer implements Adapter
 
     @Override
     public void moveSeekBarTo(float msec) {
-        Log.d("poo","msec:   " +msec);
-        brightcoveExoPlayerVideoView.seekTo((int)msec*1000);
+        Log.d("poo", "msec:   " + msec);
+        brightcoveExoPlayerVideoView.seekTo((int) msec * 1000);
     }
 }

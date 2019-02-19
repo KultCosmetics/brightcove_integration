@@ -1,4 +1,4 @@
-package com.kult;
+package com.kult.exoplayer;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.brightcove.player.model.Video;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
 import com.google.android.exoplayer2.ExoPlaybackException;
@@ -22,20 +21,16 @@ import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.LoopingMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
-import com.google.android.exoplayer2.source.hls.HlsMediaSource;
 import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
-import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
-
-import java.net.URISyntaxException;
+import com.kult.R;
 
 //https://google.github.io/ExoPlayer/guide.html
 //https://stackoverflow.com/questions/48545554/right-exoplayer-uri
@@ -57,7 +52,7 @@ import java.net.URISyntaxException;
 //UI
 //https://medium.com/google-exoplayer/customizing-exoplayers-ui-components-728cf55ee07a
 
-public class ExoPlayerActivity extends Activity {
+public class ExoPlayer_VideoActivity extends Activity {
     //private String videoUrl = "https://learning-services-media.brightcove.com/videos/hls/greatblueheron/greatblueheron.m3u8";
     private String videoUrl = "https://res.cloudinary.com/dqrr4jjhj/video/upload/v1550484487/samples/test/Priyanka_Chopra_Everyday_Beauty_Tips.mp4";
 
@@ -75,7 +70,7 @@ public class ExoPlayerActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_exoplayer);
+        setContentView(R.layout.activity_exoplayer_video);
 
         player = ExoPlayerFactory.newSimpleInstance(this);
         playerView = findViewById(R.id.player_view);
@@ -95,7 +90,7 @@ public class ExoPlayerActivity extends Activity {
         /*DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
                 Util.getUserAgent(this, "yourApplicationName"));*/
 
-        Uri mp4VideoUri = Uri .parse(videoUrl);
+        Uri mp4VideoUri = Uri.parse(videoUrl);
 
         /*if (uriString.contains("m3u8")) {
             MediaSource videoSource =  new HlsMediaSource.Factory(dataSourceFactory).createMediaSource(mp4VideoUri);
@@ -107,13 +102,13 @@ public class ExoPlayerActivity extends Activity {
         }*/
 
         // Prepare the player with the source.
-        MediaSource videoSource =  new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(mp4VideoUri);
+        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(mp4VideoUri);
         player.prepare(videoSource);
 
         player.addListener(new Player.EventListener() {
             @Override
             public void onTimelineChanged(Timeline timeline, @Nullable Object manifest, int reason) {
-                Log.v(TAG, "Listener-onTimelineChanged...  " +reason);
+                Log.v(TAG, "Listener-onTimelineChanged...  " + reason);
             }
 
             @Override
@@ -123,7 +118,7 @@ public class ExoPlayerActivity extends Activity {
 
             @Override
             public void onLoadingChanged(boolean isLoading) {
-                Log.v(TAG, "Listener-onLoadingChanged...isLoading:"+isLoading);
+                Log.v(TAG, "Listener-onLoadingChanged...isLoading:" + isLoading);
             }
 
             @Override
@@ -146,7 +141,7 @@ public class ExoPlayerActivity extends Activity {
 
             @Override
             public void onPositionDiscontinuity(int reason) {
-                Log.v(TAG, "Listener-onPositionDiscontinuity... " +reason);
+                Log.v(TAG, "Listener-onPositionDiscontinuity... " + reason);
             }
 
             @Override
@@ -254,12 +249,12 @@ public class ExoPlayerActivity extends Activity {
 
     private void getVideoUrl() {
         Intent i = getIntent();
-        if(i != null && i.hasExtra("VIDEO_URL")) {
+        if (i != null && i.hasExtra("VIDEO_URL")) {
             videoUrl = i.getStringExtra("VIDEO_URL");
         }
 
-        Log.v(TAG, "VideoIdUsingCatalogActivity:: getvideoUrl: videoUrl = " + videoUrl);
-        if(TextUtils.isEmpty(videoUrl)) {
+        Log.v(TAG, "BrightCove_VideoActivity:: getvideoUrl: videoUrl = " + videoUrl);
+        if (TextUtils.isEmpty(videoUrl)) {
             return;
         }
     }

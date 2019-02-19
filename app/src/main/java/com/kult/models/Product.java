@@ -1,7 +1,4 @@
-package com.kult;
-
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+package com.kult.models;
 
 import java.io.Serializable;
 

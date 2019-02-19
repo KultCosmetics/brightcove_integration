@@ -1,4 +1,4 @@
-package com.kult;
+package com.kult.brightcove;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.kult.R;
+import com.kult.models.Product;
 
 import java.util.List;
 
@@ -30,7 +32,7 @@ public class Adapter_Products extends RecyclerView.Adapter<Adapter_Products.Prod
 
     @Override
     public int getItemCount() {
-        if(productList != null) {
+        if (productList != null) {
             return productList.size();
         }
         return 0;
@@ -48,7 +50,7 @@ public class Adapter_Products extends RecyclerView.Adapter<Adapter_Products.Prod
 
         holder.ivProductImage.invalidate();
         String productImage = product.getImageUrl();
-        Log.d("poo", "product:   " +productImage);
+        Log.d("poo", "product:   " + productImage);
         Glide.with(mContext).load(productImage).centerCrop()
                 .placeholder(R.drawable.ic_film)
                 .error(R.drawable.ic_film)

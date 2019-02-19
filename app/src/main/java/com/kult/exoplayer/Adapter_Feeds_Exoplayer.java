@@ -1,4 +1,4 @@
-package com.kult;
+package com.kult.exoplayer;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,11 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.brightcove.player.edge.Catalog;
-import com.brightcove.player.edge.VideoListener;
-import com.brightcove.player.event.EventEmitter;
-import com.brightcove.player.model.Video;
-import com.brightcove.player.view.BrightcoveExoPlayerVideoView;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
@@ -24,11 +19,10 @@ import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
-import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
-import com.google.android.exoplayer2.upstream.FileDataSourceFactory;
-import com.google.android.exoplayer2.upstream.cache.CacheDataSource;
-import com.google.android.exoplayer2.upstream.cache.CacheDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.kult.R;
+import com.kult.brightcove.BrightCove_VideoActivity;
+import com.kult.models.FeedDataItem;
 
 import java.util.List;
 
@@ -62,8 +56,8 @@ public class Adapter_Feeds_Exoplayer extends RecyclerView.Adapter<Adapter_Feeds_
                 videoViewHolder.playerView.setPlayer(player);
 
                 DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(mContext, Util.getUserAgent(mContext, mContext.getResources().getString(R.string.app_name)));
-                Uri mp4VideoUri = Uri .parse(feedDataItem.getVideoUrl());
-                MediaSource videoSource =  new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(mp4VideoUri);
+                Uri mp4VideoUri = Uri.parse(feedDataItem.getVideoUrl());
+                MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(mp4VideoUri);
                 player.prepare(videoSource);
                 player.setPlayWhenReady(false);
 
@@ -71,7 +65,7 @@ public class Adapter_Feeds_Exoplayer extends RecyclerView.Adapter<Adapter_Feeds_
                     @Override
                     public void onClick(View v) {
 
-                        Intent intent = new Intent(mContext, VideoIdUsingCatalogActivity.class);
+                        Intent intent = new Intent(mContext, BrightCove_VideoActivity.class);
                         intent.putExtra("VIDEO_URL", String.valueOf(feedDataItem.getVideoUrl()));
 
                         ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(

@@ -1,4 +1,4 @@
-package com.kult;
+package com.kult.brightcove;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,6 +14,9 @@ import com.brightcove.player.edge.Catalog;
 import com.brightcove.player.edge.VideoListener;
 import com.brightcove.player.event.EventEmitter;
 import com.brightcove.player.model.Video;
+import com.brightcove.player.view.BrightcoveExoPlayerVideoView;
+import com.kult.R;
+import com.kult.models.FeedDataItem;
 
 import java.util.List;
 
@@ -35,7 +38,7 @@ public class Adapter_Feeds extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_feed_video_content_item, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_feed_video_content_item_brightcove, viewGroup, false);
         return new ViewHolder_FeedsVideoContent(v);
     }
 
@@ -66,7 +69,7 @@ public class Adapter_Feeds extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                     @Override
                     public void onClick(View v) {
 
-                        Intent intent = new Intent(mContext, VideoIdUsingCatalogActivity.class);
+                        Intent intent = new Intent(mContext, BrightCove_VideoActivity.class);
                         intent.putExtra("VIDEO_ID", String.valueOf(feedDataItem.getVideoId()));
 
                         ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
@@ -87,5 +90,17 @@ public class Adapter_Feeds extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             return feedDataItemList.size();
         }
         return 0;
+    }
+
+    public class ViewHolder_FeedsVideoContent extends RecyclerView.ViewHolder {
+
+        public View view;
+        public BrightcoveExoPlayerVideoView brightcoveExoPlayerVideoView;
+
+        public ViewHolder_FeedsVideoContent(View itemView) {
+            super(itemView);
+            view = itemView;
+            brightcoveExoPlayerVideoView = itemView.findViewById(R.id.brightcove_video_view_feed_video_content);
+        }
     }
 }

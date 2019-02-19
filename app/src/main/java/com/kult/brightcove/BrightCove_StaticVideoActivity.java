@@ -1,19 +1,20 @@
-package com.kult;
+package com.kult.brightcove;
 
 import android.os.Bundle;
 
 import com.brightcove.player.model.DeliveryType;
 import com.brightcove.player.model.Video;
 import com.brightcove.player.view.BrightcovePlayer;
+import com.kult.R;
 
 import java.net.URISyntaxException;
 
-public class StaticVideoActivity extends BrightcovePlayer {
+public class BrightCove_StaticVideoActivity extends BrightcovePlayer {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_static_video);
+        setContentView(R.layout.activity_brightcove_static_video);
 
         playDemoVideo();
     }
