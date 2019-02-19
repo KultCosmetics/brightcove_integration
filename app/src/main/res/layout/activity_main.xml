@@ -5,12 +5,12 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tv_exoplayer"
+        android:id="@+id/tv_exoplayer_video"
         style="@style/TextView"
         android:text="ExoPlayer: Video" />
 
     <TextView
-        android:id="@+id/tv_exoplayer_feed"
+        android:id="@+id/tv_exoplayer_video_list"
         style="@style/TextView"
         android:text="Exoplayer: Video List" />
 
@@ -30,12 +30,12 @@
         android:text="BrightCove: Analytics" />
 
     <TextView
-        android:id="@+id/tv_kult_feed"
+        android:id="@+id/tv_brightcove_video_list"
         style="@style/TextView"
         android:text="BrightCove: Video List" />
 
     <TextView
-        android:id="@+id/tv_kult_need"
+        android:id="@+id/tv_nyx"
         style="@style/TextView"
         android:text="BrightCove: Kult need like NYX" />
 

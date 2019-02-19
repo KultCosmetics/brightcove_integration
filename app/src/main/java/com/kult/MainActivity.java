@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.kult.brightcove.BrightCove_AnalyticsActivity;
 import com.kult.brightcove.BrightCove_NYX;
 import com.kult.brightcove.BrightCove_StaticVideoActivity;
 import com.kult.brightcove.BrightCove_VideoActivity;
@@ -19,21 +20,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.tv_exoplayer).setOnClickListener(this);
-        findViewById(R.id.tv_exoplayer_feed).setOnClickListener(this);
+        findViewById(R.id.tv_exoplayer_video).setOnClickListener(this);
+        findViewById(R.id.tv_exoplayer_video_list).setOnClickListener(this);
+
         findViewById(R.id.tv_brightcove_static_video).setOnClickListener(this);
         findViewById(R.id.tv_brightcove_video_from_id).setOnClickListener(this);
-        findViewById(R.id.tv_kult_feed).setOnClickListener(this);
-        findViewById(R.id.tv_kult_need).setOnClickListener(this);
+        findViewById(R.id.tv_brightcove_analytics).setOnClickListener(this);
+        findViewById(R.id.tv_brightcove_video_list).setOnClickListener(this);
+
+        findViewById(R.id.tv_nyx).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tv_exoplayer:
+            case R.id.tv_exoplayer_video:
                 startActivity(new Intent(this, ExoPlayer_VideoActivity.class));
                 break;
-            case R.id.tv_exoplayer_feed:
+            case R.id.tv_exoplayer_video_list:
                 startActivity(new Intent(this, ExoPlayer_VideoListActivity.class));
                 break;
             case R.id.tv_brightcove_static_video:
@@ -42,10 +46,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.tv_brightcove_video_from_id:
                 startActivity(new Intent(this, BrightCove_VideoActivity.class));
                 break;
-            case R.id.tv_kult_feed:
+            case R.id.tv_brightcove_analytics:
+                startActivity(new Intent(this, BrightCove_AnalyticsActivity.class));
+                break;
+            case R.id.tv_brightcove_video_list:
                 startActivity(new Intent(this, BrightCove_VideoListActivity.class));
                 break;
-            case R.id.tv_kult_need:
+            case R.id.tv_nyx:
                 startActivity(new Intent(this, BrightCove_NYX.class));
                 break;
         }

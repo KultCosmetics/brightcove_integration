@@ -26,6 +26,8 @@
 
         <activity android:name=".brightcove.BrightCove_VideoListActivity" />
 
+        <activity android:name=".brightcove.BrightCove_AnalyticsActivity" />
+
         <activity android:name=".brightcove.BrightCove_NYX" />
 
         <activity
