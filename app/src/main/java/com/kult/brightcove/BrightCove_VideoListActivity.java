@@ -2,6 +2,7 @@ package com.kult.brightcove;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.kult.R;
+import com.kult.SpacesItemDecoration;
 import com.kult.models.FeedDataItem;
 
 import org.json.JSONArray;
@@ -37,8 +39,13 @@ public class BrightCove_VideoListActivity extends AppCompatActivity {
         Adapter_Feeds adapter = new Adapter_Feeds(this, feedDataItemList);
 
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        staggeredGridLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+
         RecyclerView recyclerView = findViewById(R.id.recycler_view_video_list);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
+        //TODO TRY THIS FOR BRIGHTCOVE QUERY: recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
     }
 

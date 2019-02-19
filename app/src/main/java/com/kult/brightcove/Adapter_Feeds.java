@@ -38,7 +38,7 @@ public class Adapter_Feeds extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_feed_video_content_item_brightcove, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_brightcove_feed_video_content_item, viewGroup, false);
         return new ViewHolder_FeedsVideoContent(v);
     }
 

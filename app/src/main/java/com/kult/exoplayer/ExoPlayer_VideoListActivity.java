@@ -9,6 +9,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.kult.R;
+import com.kult.SpacesItemDecoration;
 import com.kult.models.FeedDataItem;
 
 import org.json.JSONArray;
@@ -39,6 +40,8 @@ public class ExoPlayer_VideoListActivity extends AppCompatActivity {
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         RecyclerView recyclerView = findViewById(R.id.recycler_view_video_list);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
+        //SpacesItemDecoration decoration = new SpacesItemDecoration(16);
+        //recyclerView.addItemDecoration(decoration);
         recyclerView.setAdapter(adapter);
     }
 

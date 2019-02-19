@@ -40,7 +40,7 @@ public class Adapter_Feeds_Exoplayer extends RecyclerView.Adapter<Adapter_Feeds_
 
     @Override
     public ViewHolder_FeedsVideoContent_ExoPlayer onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_feed_video_content_item_exoplayer, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_exoplayer_feed_video_content_item, viewGroup, false);
         return new ViewHolder_FeedsVideoContent_ExoPlayer(v);
     }
 
