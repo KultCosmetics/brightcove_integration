@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.brightcove.player.view.BrightcoveExoPlayerVideoView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/brightcove_video_view_feed_video_content"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:background="@color/window_background" />
-    <!--
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="2dip"
+    android:layout_margin="5dip"
     card_view:cardBackgroundColor="@color/window_background"
     card_view:cardCornerRadius="4dp"
     card_view:cardElevation="2dp">
@@ -24,7 +17,8 @@
         <com.brightcove.player.view.BrightcoveExoPlayerVideoView
             android:id="@+id/brightcove_video_view_feed_video_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/window_background" />
     </LinearLayout>
-</android.support.v7.widget.CardView>-->
+</android.support.v7.widget.CardView>

@@ -10,6 +10,11 @@
         android:text="ExoPlayer: Video" />
 
     <TextView
+        android:id="@+id/tv_exoplayer_custom_control"
+        style="@style/TextView"
+        android:text="Exoplayer: Custom Controls" />
+
+    <TextView
         android:id="@+id/tv_exoplayer_video_list"
         style="@style/TextView"
         android:text="Exoplayer: Video List" />

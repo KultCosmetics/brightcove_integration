@@ -12,6 +12,9 @@ public class FeedDataItem implements Serializable {
     @SerializedName("video_url")
     @Expose
     private String videoUrl;
+    @SerializedName("height")
+    @Expose
+    private int height;
 
     public final long getVideoId() {
         return this.videoId;
@@ -19,5 +22,9 @@ public class FeedDataItem implements Serializable {
 
     public String getVideoUrl() {
         return videoUrl;
+    }
+
+    public int getHeight() {
+        return height;
     }
 }

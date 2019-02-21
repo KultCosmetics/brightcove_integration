@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
@@ -61,11 +62,20 @@ public class Adapter_Feeds_Exoplayer extends RecyclerView.Adapter<Adapter_Feeds_
                 player.prepare(videoSource);
                 player.setPlayWhenReady(false);
 
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                lp.height = feedDataItem.getHeight();
+                lp.bottomMargin = 10;
+                lp.leftMargin = 10;
+                lp.rightMargin = 10;
+                lp.topMargin = 10;
+
+                videoViewHolder.playerView.setLayoutParams(lp);
+
                 videoViewHolder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                        Intent intent = new Intent(mContext, BrightCove_VideoActivity.class);
+                        Intent intent = new Intent(mContext, ExoPlayer_VideoActivity.class);
                         intent.putExtra("VIDEO_URL", String.valueOf(feedDataItem.getVideoUrl()));
 
                         ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(

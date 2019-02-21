@@ -39,6 +39,11 @@ import com.kult.R;
 //https://github.com/GeoffLedak/ExoplayerFullscreen
 //https://geoffledak.com/blog/2017/09/11/how-to-add-a-fullscreen-toggle-button-to-exoplayer-in-android/
 
+//Cache
+//https://medium.com/google-exoplayer/pre-caching-downloading-progressive-streams-in-exoplayer-3a816c75e8f6
+
+//https://medium.com/google-exoplayer/downloading-streams-6d259eec7f95
+
 //Bit rate/ resolution
 //https://medium.com/google-exoplayer/exoplayer-2-x-track-selection-2b62ff712cc9
 

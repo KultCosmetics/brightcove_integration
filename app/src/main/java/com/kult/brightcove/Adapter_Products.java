@@ -82,6 +82,6 @@ public class Adapter_Products extends RecyclerView.Adapter<Adapter_Products.Prod
     }
 
     public interface SeekBarListener {
-        public void moveSeekBarTo(float msec);
+        void moveSeekBarTo(float msec);
     }
 }

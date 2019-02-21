@@ -10,6 +10,7 @@ import com.kult.brightcove.BrightCove_NYX;
 import com.kult.brightcove.BrightCove_StaticVideoActivity;
 import com.kult.brightcove.BrightCove_VideoActivity;
 import com.kult.brightcove.BrightCove_VideoListActivity;
+import com.kult.exoplayer.ExoPlayer_CustomControlsActivity;
 import com.kult.exoplayer.ExoPlayer_VideoActivity;
 import com.kult.exoplayer.ExoPlayer_VideoListActivity;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.tv_exoplayer_video).setOnClickListener(this);
+        findViewById(R.id.tv_exoplayer_custom_control).setOnClickListener(this);
         findViewById(R.id.tv_exoplayer_video_list).setOnClickListener(this);
 
         findViewById(R.id.tv_brightcove_static_video).setOnClickListener(this);
@@ -36,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.tv_exoplayer_video:
                 startActivity(new Intent(this, ExoPlayer_VideoActivity.class));
+                break;
+            case R.id.tv_exoplayer_custom_control:
+                startActivity(new Intent(this, ExoPlayer_CustomControlsActivity.class));
                 break;
             case R.id.tv_exoplayer_video_list:
                 startActivity(new Intent(this, ExoPlayer_VideoListActivity.class));

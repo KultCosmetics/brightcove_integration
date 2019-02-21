@@ -34,9 +34,8 @@
             android:name=".exoplayer.ExoPlayer_VideoActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection" />
 
-        <activity
-            android:name=".exoplayer.ExoPlayer_VideoListActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection" />
+        <activity android:name=".exoplayer.ExoPlayer_VideoListActivity" />
+        <activity android:name=".exoplayer.ExoPlayer_CustomControlsActivity" />
 
     </application>
 

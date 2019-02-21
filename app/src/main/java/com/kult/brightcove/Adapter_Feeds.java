@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.brightcove.player.edge.Catalog;
 import com.brightcove.player.edge.VideoListener;
@@ -64,6 +65,15 @@ public class Adapter_Feeds extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                         videoViewHolder.brightcoveExoPlayerVideoView.start();
                     }
                 });
+
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                lp.height = feedDataItem.getHeight();
+                lp.bottomMargin = 10;
+                lp.leftMargin = 10;
+                lp.rightMargin = 10;
+                lp.topMargin = 10;
+
+                videoViewHolder.brightcoveExoPlayerVideoView.setLayoutParams(lp);
 
                 videoViewHolder.view.setOnClickListener(new View.OnClickListener() {
                     @Override

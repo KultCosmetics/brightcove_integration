@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
     android:layout_gravity="center"
-    android:layout_margin="2dip"
+    android:layout_margin="5dip"
     card_view:cardBackgroundColor="@color/window_background"
     card_view:cardCornerRadius="4dp"
     card_view:cardElevation="2dp">
