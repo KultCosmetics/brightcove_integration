@@ -13,4 +13,4 @@
 #### Yet to work on Analytics part, I need to see how and what events can be captured by my app when a video is on-going/ done playing in brightcove.
 Any code for it should be fine.
 
-
+#### Can we add custom controls in Brightcove as in Exoplayer (in Ui, exoplayer video and exoplayer custom controls can show the difference)
