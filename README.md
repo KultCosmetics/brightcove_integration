@@ -1,4 +1,4 @@
-# Doubts for BrightCove
+# Doubts for BrightCove (in reference to Exoplayer as Brightcove is build on top of it)
 
 #### How to achieve fullscreen video effect in brightcove as in native exoplayer. Click ExoPlayer video, Brightcove video buttons on main screen
 
