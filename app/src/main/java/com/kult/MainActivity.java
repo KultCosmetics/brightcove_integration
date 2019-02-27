@@ -13,6 +13,7 @@ import com.kult.brightcove.BrightCove_VideoListActivity;
 import com.kult.exoplayer.ExoPlayer_CustomControlsActivity;
 import com.kult.exoplayer.ExoPlayer_VideoActivity;
 import com.kult.exoplayer.ExoPlayer_VideoListActivity;
+import com.kult.exoplayer.Exoplayer_NYX;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,13 +25,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.tv_exoplayer_video).setOnClickListener(this);
         findViewById(R.id.tv_exoplayer_custom_control).setOnClickListener(this);
         findViewById(R.id.tv_exoplayer_video_list).setOnClickListener(this);
+        findViewById(R.id.tv_exoplayer_nyx).setOnClickListener(this);
 
         findViewById(R.id.tv_brightcove_static_video).setOnClickListener(this);
         findViewById(R.id.tv_brightcove_video_from_id).setOnClickListener(this);
         findViewById(R.id.tv_brightcove_analytics).setOnClickListener(this);
         findViewById(R.id.tv_brightcove_video_list).setOnClickListener(this);
 
-        findViewById(R.id.tv_nyx).setOnClickListener(this);
+        findViewById(R.id.tv_brightcove_nyx).setOnClickListener(this);
     }
 
     @Override
@@ -45,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.tv_exoplayer_video_list:
                 startActivity(new Intent(this, ExoPlayer_VideoListActivity.class));
                 break;
+            case R.id.tv_exoplayer_nyx:
+                startActivity(new Intent(this, Exoplayer_NYX.class));
+                break;
+
             case R.id.tv_brightcove_static_video:
                 startActivity(new Intent(this, BrightCove_StaticVideoActivity.class));
                 break;
@@ -57,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.tv_brightcove_video_list:
                 startActivity(new Intent(this, BrightCove_VideoListActivity.class));
                 break;
-            case R.id.tv_nyx:
+            case R.id.tv_brightcove_nyx:
                 startActivity(new Intent(this, BrightCove_NYX.class));
                 break;
         }

@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
 import com.google.android.exoplayer2.ExoPlaybackException;
@@ -21,10 +22,12 @@ import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.LoopingMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
+import com.google.android.exoplayer2.source.hls.HlsMediaSource;
 import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
+import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -39,8 +42,11 @@ import com.kult.R;
 //https://github.com/GeoffLedak/ExoplayerFullscreen
 //https://geoffledak.com/blog/2017/09/11/how-to-add-a-fullscreen-toggle-button-to-exoplayer-in-android/
 
+//https://medium.com/fungjai/playing-video-by-exoplayer-b97903be0b33
+
 //Cache
 //https://medium.com/google-exoplayer/pre-caching-downloading-progressive-streams-in-exoplayer-3a816c75e8f6
+//https://stackoverflow.com/questions/37774720/android-exoplayer-downloading-video-non-dash-hls-and-streaming-at-the-same/41001057#41001057
 
 //https://medium.com/google-exoplayer/downloading-streams-6d259eec7f95
 
@@ -59,7 +65,8 @@ import com.kult.R;
 
 public class ExoPlayer_VideoActivity extends Activity {
     //private String videoUrl = "https://learning-services-media.brightcove.com/videos/hls/greatblueheron/greatblueheron.m3u8";
-    private String videoUrl = "https://res.cloudinary.com/dqrr4jjhj/video/upload/v1550484487/samples/test/Priyanka_Chopra_Everyday_Beauty_Tips.mp4";
+    //private String videoUrl = "https://res.cloudinary.com/dqrr4jjhj/video/upload/v1550484487/samples/test/Priyanka_Chopra_Everyday_Beauty_Tips.mp4";
+    private String videoUrl = "https://res.cloudinary.com/dqrr4jjhj/video/upload/sp_full_hd/v1550746511/priyanka.m3u8";
 
     private String TAG = "ExoPlayer_boo";
 
@@ -107,7 +114,7 @@ public class ExoPlayer_VideoActivity extends Activity {
         }*/
 
         // Prepare the player with the source.
-        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(mp4VideoUri);
+        MediaSource videoSource = new HlsMediaSource.Factory(dataSourceFactory).createMediaSource(mp4VideoUri);
         player.prepare(videoSource);
 
         player.addListener(new Player.EventListener() {

@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.util.Util;
@@ -33,7 +35,17 @@ public class ExoPlayer_CustomControlsActivity extends Activity {
         player = ExoPlayerFactory.newSimpleInstance(this);
         playerView = findViewById(R.id.player_view);
 
-        //playerView.setControllerVisibilityListener(this);
+        //https://stackoverflow.com/questions/48988063/how-can-i-scale-video-in-exoplayer-v2-play-video-in-full-screen
+        //Following two lines helped me to play video in full screen mode.
+
+        //Using app:resize_mode in layout file this some how help but it stretches the video as mentioned in question picture,so you can solve by adding these two lines in your code.
+
+        playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FILL);
+        player.setVideoScalingMode(C.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
+
+        //Bellow line will ensure that aspect ratio is correctly maintained even for 4:3 videos.
+        //playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT);
+
         playerView.setPlayer(player);
 
         dataSourceFactory = buildDataSourceFactory();

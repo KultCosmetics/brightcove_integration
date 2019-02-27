@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_gravity="bottom"
-    android:background="#CC000000"
-    android:layoutDirection="ltr"
+    android:background="#81000000"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingTop="4dp">
@@ -44,14 +44,30 @@
 
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/kult_option1"
+        style="@style/ExoMediaButton.FastForward"
+        android:layout_alignParentBottom="true"
+        android:src="@android:drawable/ic_menu_camera" />
+
+    <ImageButton
+        android:id="@+id/kult_option2"
+        style="@style/ExoMediaButton.Next"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:src="@android:drawable/ic_menu_call" />
+
     <LinearLayout
+        android:id="@+id/ll_seekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/kult_option2"
+        android:layout_toRightOf="@+id/kult_option1"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <!--<TextView
+        <TextView
             android:id="@id/exo_position"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,7 +76,7 @@
             android:paddingRight="4dp"
             android:textColor="#FFBEBEBE"
             android:textSize="14sp"
-            android:textStyle="bold" />-->
+            android:textStyle="bold" />
 
         <com.google.android.exoplayer2.ui.DefaultTimeBar
             android:id="@id/exo_progress"
@@ -68,7 +84,7 @@
             android:layout_height="26dp"
             android:layout_weight="1" />
 
-        <!--<TextView
+        <TextView
             android:id="@id/exo_duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,8 +93,8 @@
             android:paddingRight="4dp"
             android:textColor="#FFBEBEBE"
             android:textSize="14sp"
-            android:textStyle="bold" />-->
+            android:textStyle="bold" />
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

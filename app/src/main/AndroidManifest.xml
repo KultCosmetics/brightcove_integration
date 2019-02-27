@@ -36,6 +36,7 @@
 
         <activity android:name=".exoplayer.ExoPlayer_VideoListActivity" />
         <activity android:name=".exoplayer.ExoPlayer_CustomControlsActivity" />
+        <activity android:name=".exoplayer.Exoplayer_NYX" />
 
     </application>
 
